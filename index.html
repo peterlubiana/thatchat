@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ThatChat</title>
+
+  
+  <!-- Anti zoom for iPhone and iPad code -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="main.css" type="text/css" />
+</head>
+
+<body>
+  <h1 id="msg">loading...</h1>
+  
+  <img id="logoimg" class="nonSelectable" src="logo.png" alt="A logo showing a weird tree and the text Softwaaa"/>
+
+  <nav id="menu"> 
+    <div id="myarea">
+      <!--<h2 id="txtwall" data-bind="text: wallText"></h2>-->
+      <input type="textarea" autocomplete="off" placeholder="Write something!" id="txtpusher" data-bind="value: wallText,
+										      valueUpdate: 'keyup'">		</div>
+    
+    <span id="getNameArea">
+      <label for="name"> Name: </label>
+      <input autocomplete="off" id="userNameInput" name="name" placeholder="Your name">
+      <input id="pushUserName" class="smoothButton" type="button" value="Get Username">
+    </span>
+    
+    <span id="joinRoomArea">
+      <label for="joinroom">Join room: </label>
+      <input autocomplete="off" id="joinSpecificInput" type="input" name="joinroom" placeholder="Roomname">
+      <input id="joinSpecificButton" class="smoothButton" type="button" value="Join room.">
+      <input id="joinRandomButton" class="smoothButton" type="button" value="Join Random room">
+    </span> 
+    <span id="menuButton" class="nonSelectable">&#9776</span>
+  </nav>
+  
+  
+  
+  <h1>Room: <span data-bind="text: wallName"></span></h1>
+  <h2>Name: <span data-bind="text: userName"></span></h2>
+  
+  
+  
+  <section id="playfield"> 
+  </section>
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.8/socket.io.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+

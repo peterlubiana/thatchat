@@ -1,0 +1,432 @@
+body{
+font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+margin-left:0px;
+}
+
+input{
+font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+padding:0.5em;
+}
+
+a{
+font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+color:#44c767;
+}
+
+button, input[type="button"]:hover{
+cursor:pointer;
+}
+
+/*
+*    Media queries.
+*
+*
+* * * * * * * * * */
+
+/*iPad*/
+
+@media all and (max-width: 500px){
+    h1,h2{
+	font-size:1.2em;
+    }
+}
+
+
+/*PORTRAIT*/
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    #msg{
+	opacity:0;
+    }
+
+   #playfield{
+       margin-top:250px;
+   } 
+}
+
+/*LANDSCAPE*/
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+    #msg{
+	opacity:0;
+    }
+    
+    #playfield{
+       margin-top:150px;
+    } 
+}
+
+/*iPhone*/ 
+@media only screen and (max-width: 320px){
+    #msg{
+	opacity:0;
+    }
+
+    body{
+	font-size:0.6em;
+    }
+    
+    #txtpusher{
+	font-size:6px;
+    }
+
+    #playfield{
+	margin-top:100px;
+	line-height:10px;
+	width:auto;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	white-space:nowrap;
+    }
+
+    .dombox *{
+	margin:2px;
+	-webkit-margin-before:0.2em;
+	-webkit-margin-after:0.2em;
+    }
+    
+    .youtubeBox{
+	max-width:320px;
+	max-height:240px;
+    }
+
+    .youtubeBox iframe{
+	width:auto;
+	height:auto;
+    }
+    
+    .dombox{
+	display:inline;
+	position:relative;
+	font-size:0.3em;
+	padding:none;
+	margin-top:10px;
+	width:30%;
+	word-wrap:break-word;
+	white-space:normal;
+    }
+
+    .dombox p{
+	display:inline;
+    }
+    
+    .dombox audio{
+	width:100%;
+    }
+    
+    #menu{
+	background:white;
+	padding:2px;
+    }
+}
+
+
+
+
+
+
+
+
+
+#logoimg{
+position:absolute;
+right:5px;
+top:0px;
+padding:10px;
+}
+
+/*
+*    AREAS 
+*  - Specific Elements with an id.
+*
+* * * * * * * * * */
+
+#txtwall{
+word-wrap:break-word;
+}
+
+#menuButton{
+position:fixed;
+right:2px;
+bottom:5px;
+border-radius:80px;
+padding:6px 8px;
+background:black;
+color:white;
+float:right;
+}
+
+#menuButton:hover{
+background:grey;
+color:white;
+cursor:pointer;
+}
+
+#menu{
+text-align:center;
+position:fixed;
+bottom:0px;
+width:100%;
+background:#f4f4f4;
+padding:10px 10px 0px 10px;
+z-index:20000;
+-webkit-animation:gotomiddle 2s;
+animation:gotomiddle 2s;
+margin-left:0px;
+}
+
+
+@-webkit-keyframes gotomiddle{
+    from{
+	padding-bottom:50%;
+	position:relative;
+    }
+    
+    to{
+	padding-bottom:10px;
+	position:fixed;
+    }
+}
+
+@keyframes gotomiddle{
+    from{
+	padding-bottom:50%;
+	position:relative;
+    }
+    
+    to{
+	padding-bottom:10px;
+	position:fixed;
+    }
+
+}
+
+
+#myarea{
+width:100%;
+text-align:center;
+display:none;
+margin-bottom:10px;
+}
+
+#txtpusher{
+width:80%;
+}
+
+#msg{
+display:none;
+color:lightgreen;
+background:white;
+padding:10px;
+position:fixed;
+opacity:0;
+top:0px;
+right:0px;
+}
+
+#main{
+background:#fafafa;
+border-radius:10px;
+width:50%;
+height:50%;
+padding:200px;
+}
+
+.dombox{
+display:inline-block;
+background:#fafafa;
+padding:10px;
+max-width:200px;
+word-wrap:break-word;
+margin:10px;
+border-radius:10px;
+}
+
+.domboximg{
+width:100%;
+max-width:150px;
+clear:both;
+}
+
+.dombox audio{
+max-width:200px;
+padding-bottom:20px;
+}
+
+.dombox span{
+font-size:0.4em
+}
+
+.imageBox img{
+max-width:200px;
+}
+
+.youtubeBox{
+max-width:480px;
+}
+
+#playfield{
+text-align:center;
+padding-bottom:100px;
+}
+
+/* Knapper */
+#joinRandomButton{
+display:none;
+}
+
+#getNameArea{
+margin-right:40px;
+}
+
+#joinRoomArea{
+display:inline-block;
+}
+
+
+/*
+*
+*  Styling classes!
+*
+* * * * * * * * * * * */
+
+
+
+/* Fjerner selectable på et element*/
+.nonSelectable{
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* AWESOME KNAPP */
+.smoothButton {
+    background-color:#44c767;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:3px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    padding:7px;
+    text-decoration:none;
+}
+.smoothButton:hover {
+    background-color:#5cbf2a;
+}
+.smoothButton:active {
+    position:relative;
+    top:1px;
+}
+
+
+
+
+
+/*
+*
+* CSS ANIMATIONS
+*
+* * * * * * * * * * * * */
+
+.dombox{
+-webkit-animation: hover 2s;
+-webkit-animation-iteration-count: infinite;
+animation: hover 2s;
+animation-iteration-count: infinite;
+position:relative;
+}
+
+/* Makes an element hover up and down*/
+@-webkit-keyframes hover{
+    from{
+	top:0px;
+    }
+    
+    50%{
+	top:5px;
+    }
+    
+    to{
+	top:0px;
+    }
+    
+}
+
+@keyframes hover{
+    from{
+	top:0px;
+    }
+    
+    50%{
+	top:5px;
+    }
+    
+    to{
+	top:0px;
+    }
+    
+}
+
+
+
+/*Makes an element circuluate!*/
+@-webkit-keyframes circulate{
+    from{
+	top:0px;
+	left:0px;
+    }
+
+    10%{
+	top:1px;
+	left:1px
+    }
+
+    20%{
+	top:2px;
+	left:2px;
+    }
+
+    30%{
+	top:3px;
+	left:3px
+    }
+    
+    40%{
+	top:4px;
+	left:2px;
+    }
+
+    50%{
+	top:5px;
+	left:1px;
+    }
+
+    60%{
+	top:4px;
+	left:-1px;
+    }	    
+	    
+    70%{
+	top:3px;
+	left:-2px;
+    }
+    
+    80%{
+	top:2px;
+	left:-3px;
+    }
+    
+    90%{
+	top:1px;
+	left:-2px;
+    }
+    
+    to{
+	top:0px;
+	left:0px
+    }
+    
+}
