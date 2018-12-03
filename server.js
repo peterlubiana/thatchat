@@ -482,7 +482,7 @@ io.sockets.on('connection', function (socket) {
 //	    console.log("User: "+socket.name+" got connected to "+data.roomname
 //          +" people in this room now: "+r.getSize());
 	    socket.currentRoom = data.roomname;
-	    socket.emit("specificRoomFound",{"msg":"You are now in room"+data.roomname+". Have fun!",
+	    socket.emit("specificRoomFound",{"msg":"You are now in room "+data.roomname+". Have fun!",
 					     "roomname":data.roomname});
 	    
 	}else{

@@ -73,17 +73,16 @@ $(document).ready(function(){
     });
 
     
-    // Make boxes removeable if they are dead.
-    $("#playfield").on("click",".dombox",function(e){
-	$db = $(this);
-	if($db.attr("id") != "boxforYou" && !$db.hasClass("imageBox")){
-	    $db.fadeOut("slow",function(){
-		$db.remove();
-	    });
-	   
-	    if($db.attr("id"))
-		rm.removeClientFromRoom(rm.getClientNameFromId($db.attr("id")));
-	}
+    $("#playfield").on("click","x",function(e){
+		$db = $(this).parent();
+		if($db.attr("id") != "boxforYou" && !$db.hasClass("imageBox")){
+		    $db.fadeOut("slow",function(){
+			$db.remove();
+		    });
+		   
+		    if($db.attr("id"))
+			rm.removeClientFromRoom(rm.getClientNameFromId($db.attr("id")));
+		}
 	
     });
     
@@ -170,15 +169,17 @@ var app = function(){
 	    var embed = '<iframe width="320" height="240" src="//www.youtube.com/embed/' 
 		+ id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 	    
-	    $("<div class='dombox youtubeBox'>"+embed+"</div>").insertAfter("#boxforYou").hide().slideToggle(300);
+	    $("<div class='dombox youtubeBox'><x></x> "+embed+"</div>").insertAfter("#boxforYou").hide().slideToggle(300);
 	}
 
     }
     
+
+
     this.createImageBox = function(url){
 	if(url){
 	    var imgelem = "<img src='"+url+"' alt='justanimage'/>";
-	    return $("<div class='dombox imageBox'>"+imgelem+"</div>").appendTo("#playfield").hide().slideToggle(300);
+	    return $("<div class='dombox imageBox'><x></x>"+imgelem+"</div>").appendTo("#playfield").hide().slideToggle(300);
 	}
     }
 
@@ -251,7 +252,9 @@ var app = function(){
     this.createDomBox = function(clientname){
 	$dbx = $("<div class='dombox' id='boxfor"+
 				clientname+"'> </div>");
-	$dbx.html("<h3 class='domboxname'>"+clientname+"</h3>"+
+	var xHtml = "";
+	if(clientname != "You") xHtml = "<x></x>";
+	$dbx.html(xHtml+"<h3 class='domboxname'>"+clientname+"</h3>"+
 		     "<p class='domboxmsg'> </p>");
 	return $dbx.css({background:app.getAwesomeColor()});
     }
@@ -348,21 +351,21 @@ function connectSocketIO(){
     });
 
     socket.on("specificRoomFound",function(data){
-	alert(data.msg);
-	app.showRoomUI();
-	currentRoom = data.roomname;
-	
-	$("#joinRoomArea, #getNameArea").slideToggle(300);
-	WC.wallName(currentRoom);
+		alert(data.msg);
+		app.showRoomUI();
+		currentRoom = data.roomname;
+		
+		$("#joinRoomArea, #getNameArea").slideToggle(300);
+		WC.wallName(currentRoom);
     });
 
     socket.on("userLeftRoom",function(data){
-	//alert("User Left Room");
-	rm.removeClientFromRoom(data.name);
-	app.removeUserFromPlayfield(data.name);
-	$("#playfield").find("#boxfor"+data.name).fadeOut("slow",function(){
-	    $(this).remove();
-	});
+		//alert("User Left Room");
+		rm.removeClientFromRoom(data.name);
+		app.removeUserFromPlayfield(data.name);
+		$("#playfield").find("#boxfor"+data.name).fadeOut("slow",function(){
+		    $(this).remove();
+		});
     });
     
     socket.on("broadcast",function(data){
@@ -421,6 +424,13 @@ function connectSocketIO(){
 }
 
 
+
+
+
+/*
+
+	ROOM manager.
+*/
 
 var rm = function(){
 

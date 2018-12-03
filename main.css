@@ -371,6 +371,18 @@ position:relative;
 }
 
 
+x{
+    position:absolute;
+    right:0px;
+    top:0px;
+    background:rgb(150,50,50);
+    border-radius:6px;
+    text-align:center;
+    padding:6px;
+    width:6px;
+    height:6px;
+    vertical-align:middle;
+}
 
 /*Makes an element circuluate!*/
 @-webkit-keyframes circulate{
