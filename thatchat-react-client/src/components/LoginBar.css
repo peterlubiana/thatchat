@@ -1,0 +1,29 @@
+
+
+
+
+.LoginBar{
+  background:black;
+  position:absolute;
+  padding:20px;
+  bottom:35%;
+  left:35%;
+}
+
+#getNameArea{
+  clear:both;
+  display: block;
+}
+
+.LoginBar input{
+  padding:10px;
+}
+
+#menuButton{
+  background:blue;
+  padding:20px;
+}
+
+#menuButton:hover{
+  background:light-blue;
+}
