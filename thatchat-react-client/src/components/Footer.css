@@ -4,8 +4,7 @@
 
 .Footer{
   background:#fafafa;
-  position:absolute;
-  padding:44px;
-  height:20px;
+  padding:22px 0px 22px 0px;
   bottom:0px;
+  width:90%;
 }

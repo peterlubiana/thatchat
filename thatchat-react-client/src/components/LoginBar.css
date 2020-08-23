@@ -3,11 +3,11 @@
 
 
 .LoginBar{
-  background:black;
-  position:absolute;
+  background:white;
+  position:fixed;
   padding:20px;
   bottom:35%;
-  left:35%;
+  right:0%;
 }
 
 #getNameArea{
@@ -15,13 +15,24 @@
   display: block;
 }
 
+#menu{
+  padding:20px;
+
+}
+
 .LoginBar input{
   padding:10px;
 }
 
 #menuButton{
-  background:blue;
+  background:yellow;
   padding:20px;
+}
+
+#menuButton:hover{
+  background:lightgreen;
+  color:black;
+  cursor: pointer;
 }
 
 #menuButton:hover{

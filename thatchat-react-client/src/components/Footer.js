@@ -10,7 +10,7 @@ const LogoStyle = {
 function Footer() {
   return (
     <div className="Footer">
-        <p> Created by : Peter Rasmussen Lubiana @ <a href="//Lubianainteractive.com" target="_blank"> Lubiana Interactive</a> <img style={LogoStyle} src="CompanyLogo.jpg" alt="A yellow logo saying: Lubiana Interactive" /></p>
+        <p> Created by : Peter Rasmussen Lubiana @ <a href="//Lubianainteractive.com" target="_blank" rel="noopener noreferrer"> Lubiana Interactive</a> <img style={LogoStyle} src="CompanyLogo.jpg" alt="A yellow logo saying: Lubiana Interactive" /></p>
     </div>
   );
 }

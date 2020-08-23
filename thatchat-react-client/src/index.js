@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import allReducers from './reducers'
+import store from "./store"
 
 
 /*
@@ -27,10 +26,15 @@ import {
 	This piece of documentation explains hot to handle different scenarios
 	for Presentational Components as well as for Containter Components.
 	as described by Dan Abramov here -> https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+	- Peter R. L.
 
 */
 
-const store = createStore(allReducers)
+
+/*
+	Testing.
+*/
+
 console.log(store.getState())
 
 store.dispatch(setOwnName("Kjell"));
@@ -40,11 +44,6 @@ store.dispatch(recieveNewMessage("Hey! We just recieved a message! ^^ From the t
 
 
 console.log(store.getState())
-/*
-
-	Testing.
-
-*/
 
 
 
@@ -54,7 +53,7 @@ console.log(store.getState())
 ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>
-    <App />
+    <App banana={2}/>
    </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -2,10 +2,10 @@
 
 
 
-.ServerStatusPanel{
+.StatusPanel{
   background:white;
   position:absolute;
-  padding:44px;
+  padding:10px;
   top:2%;
   left:2%;
 }

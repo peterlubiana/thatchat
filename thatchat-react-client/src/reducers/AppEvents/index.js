@@ -21,10 +21,6 @@
 */
 
 
-
-
-
-
 /*
 
   LOADING DATA AND LIBRARIES
@@ -32,17 +28,10 @@
 */
 
 
+
 // This loads the Types we use in our system ^^ Like JOIN_ROOM etc.
 import { ActionType } from "../../actions";
-
-/*
-    This Object is put here so we more easily
-    can know what is in the state we are manipulating.
-*/
 import { InitialAppState } from "../../config";
-
-
-
 
 // This library is used to handle immutable objects better.
 const Immutable = require('immutable');
@@ -50,46 +39,14 @@ const Immutable = require('immutable');
 
 
 
-const ClientEvents = (state = InitialAppState, action) => {
+
+const AppEvents = (state = InitialAppState, action) => {
   switch (action.type) {
     
-    case ActionType.SET_OWN_NAME:
-
-     return Object.assign({}, state, {
-        userDisplayName: action.newName
+    case ActionType.SET_APPLICATION_BACKGROUND:
+         return Object.assign({}, state, {
+        appBackground: action.newBg
       })
-    
-
-
-
-    case ActionType.SET_CURRENT_ROOM:
-
-      return Object.assign({}, state, {
-        currentRoomName: action.roomName
-      })
-
-
-
-
-    case ActionType.SEND_MESSAGE_TO_ROOM:
-
-      return Object.assign({}, state, {
-          lastSentMessage: action.text
-        })
-
-        
-
-
-
-
-    case ActionType.RECIEVE_NEW_MESSAGE:
-
-     return Object.assign({}, state, {
-        lastRecievedMessage: action.text
-      })
-
-
-
 
     default:
       return state
@@ -97,4 +54,4 @@ const ClientEvents = (state = InitialAppState, action) => {
 
 }
 
-export default ClientEvents
+export default AppEvents

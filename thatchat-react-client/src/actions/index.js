@@ -26,6 +26,7 @@
  */
 export const ActionType = {
 	SET_CURRENT_ROOM : 'SET_CURRENT_ROOM',
+	SET_APP_BACKGROUND : 'SET_APP_BACKGROUND',
 	SET_OWN_NAME : 'SET_OWN_NAME',
 	SEND_MESSAGE_TO_ROOM : 'SEND_MESSAGE_TO_ROOM',
 	RECIEVE_NEW_MESSAGE : 'RECIEVE_NEW_MESSAGE'
@@ -53,6 +54,10 @@ export function setCurrentRoom(roomName) {
 
 export function setOwnName(newName) {
   return { type: ActionType.SET_OWN_NAME, newName }
+}
+
+export function setAppBackground(newBg) {
+  return { type: ActionType.SET_APP_BACKGROUND, newBg }
 }
 
 

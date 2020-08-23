@@ -3,8 +3,16 @@
 
 
 .UserInputArea{
-  background:orange;
+  position:absolute;
+  bottom:0px;
+  background:#fafafa;
   padding:20px;
-  width:200px;
+  width:85%;
   font-size:20px;
+}
+
+.UserInputArea input{
+	font-size: 20px;
+	padding:5px;
+	border:lightgray 1px solid;
 }
