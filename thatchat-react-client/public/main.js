@@ -58,19 +58,19 @@ $(document).ready(function(){
 	}
     });
 
-    $("#joinRandomButton").on("click",function(){
-	var nameFromInputBox = $("#userNameInput").val();
-	if(name || nameFromInputBox)
-	    s.emit("getRandomRoom",{"name":nameFromInputBox});
-    });
+ //    $("#joinRandomButton").on("click",function(){
+	// var nameFromInputBox = $("#userNameInput").val();
+	// if(name || nameFromInputBox)
+	//     s.emit("getRandomRoom",{"name":nameFromInputBox});
+ //    });
     
-    $("#pushUserName").on("click",function(){
-	var nameFromInputBox = $("#userNameInput").val();
-	if(name || nameFromInputBox)
-	    s.emit("login",{"name":nameFromInputBox});
-	else
-	    alert("You need to select a username!");
-    });
+ //    $("#pushUserName").on("click",function(){
+	// var nameFromInputBox = $("#userNameInput").val();
+	// if(name || nameFromInputBox)
+	//     s.emit("login",{"name":nameFromInputBox});
+	// else
+	//     alert("You need to select a username!");
+ //    });
 
     
     $("#playfield").on("click","x",function(e){
@@ -117,12 +117,12 @@ $(document).ready(function(){
 	app.focused = false;
     });
     
-    $("#joinSpecificButton").on("click",function(){
-	var roomFromInputBox = $("#joinSpecificInput").val();
-	if(currentRoom || roomFromInputBox)
-	    s.emit("getSpecificRoom",{"roomname":roomFromInputBox});else
-		alert("You need to supply a room to join!");
-    });
+ //    $("#joinSpecificButton").on("click",function(){
+	// var roomFromInputBox = $("#joinSpecificInput").val();
+	// if(currentRoom || roomFromInputBox)
+	//     s.emit("getSpecificRoom",{"roomname":roomFromInputBox});else
+	// 	alert("You need to supply a room to join!");
+ //    });
     
     
 });

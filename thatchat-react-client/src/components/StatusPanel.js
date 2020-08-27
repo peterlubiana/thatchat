@@ -3,19 +3,28 @@ import './StatusPanel.css';
 import { connect } from 'react-redux';
 
 
-function StatusPanel(props) {
+class StatusPanel extends React.Component {
 
-  console.log("Status panel props:")	
-  console.log(props)
 
-  return (
-    <div className="StatusPanel">
-   		<img src="AppLogo.png" alt="The logo of the Chat Application" />
-    	<h4> Server status </h4>
-        <h5> Current Room : {props.roomName}</h5>
-        <h5> Current Username : {props.userName}</h5>
-    </div>
-  );
+
+
+
+  componentDidMount(){
+ 
+  }
+
+ 
+
+  render(){
+    return (
+      <div className="StatusPanel">
+     		<img src="AppLogo.png" alt="The logo of the Chat Application" />
+      	<h4> Server status </h4>
+        <h5> Current Room : {this.props.store.currentRoomName}</h5>
+        <h5> Current Username : {this.props.store.userDisplayName}</h5>
+      </div>
+    );
+  }
 }
 
 
@@ -27,8 +36,7 @@ function StatusPanel(props) {
 	become the props of the component. 
 */
 const mapStateToProps = state => ({
-	userName : state.userName,
-	roomName : state.roomName
+	store : state.AppData
 })
 
 // Connect this Component with the Redux store we created.

@@ -4,8 +4,8 @@
 
 .StatusPanel{
   background:white;
-  position:absolute;
+ /* position:absolute;*/
   padding:10px;
-  top:2%;
-  left:2%;
+  top:0.5%;
+  left:0.5%;
 }

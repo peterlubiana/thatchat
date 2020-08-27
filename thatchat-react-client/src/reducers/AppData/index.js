@@ -27,25 +27,56 @@
 
 */
 
-
+import { InitialState } from "../../config"
 
 // This loads the Types we use in our system ^^ Like JOIN_ROOM etc.
 import { ActionType } from "../../actions";
-import { InitialAppState } from "../../config";
 
 // This library is used to handle immutable objects better.
 const Immutable = require('immutable');
 
 
-
-
-
-const AppEvents = (state = InitialAppState, action) => {
+const AppData = (state = InitialState, action) => {
   switch (action.type) {
     
     case ActionType.SET_APPLICATION_BACKGROUND:
          return Object.assign({}, state, {
         appBackground: action.newBg
+      })
+
+    case ActionType.SET_OWN_NAME:
+
+     return Object.assign({}, state, {
+        userDisplayName: action.newName
+      })
+    
+
+
+
+    case ActionType.SET_CURRENT_ROOM:
+
+      return Object.assign({}, state, {
+        currentRoomName: action.roomName
+      })
+
+
+
+
+    case ActionType.SEND_MESSAGE_TO_ROOM:
+
+      return Object.assign({}, state, {
+          lastSentMessage: action.text
+        })
+
+        
+
+
+
+
+    case ActionType.RECIEVE_NEW_MESSAGE:
+
+     return Object.assign({}, state, {
+        lastRecievedMessage: action.text
       })
 
     default:
@@ -54,4 +85,4 @@ const AppEvents = (state = InitialAppState, action) => {
 
 }
 
-export default AppEvents
+export default AppData

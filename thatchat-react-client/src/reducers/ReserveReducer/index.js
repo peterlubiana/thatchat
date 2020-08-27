@@ -27,7 +27,8 @@
 
 /*
 
-  LOADING DATA AND LIBRARIES
+  This Reducer Is basically framework waiting to be used. At a later point should the application need 
+  restructuring or if we add new fatures / a new set of actions.
 
 */
 
@@ -50,51 +51,8 @@ const Immutable = require('immutable');
 
 
 
-const ClientEvents = (state = InitialAppState, action) => {
-  switch (action.type) {
-    
-    case ActionType.SET_OWN_NAME:
-
-     return Object.assign({}, state, {
-        userDisplayName: action.newName
-      })
-    
-
-
-
-    case ActionType.SET_CURRENT_ROOM:
-
-      return Object.assign({}, state, {
-        currentRoomName: action.roomName
-      })
-
-
-
-
-    case ActionType.SEND_MESSAGE_TO_ROOM:
-
-      return Object.assign({}, state, {
-          lastSentMessage: action.text
-        })
-
-        
-
-
-
-
-    case ActionType.RECIEVE_NEW_MESSAGE:
-
-     return Object.assign({}, state, {
-        lastRecievedMessage: action.text
-      })
-
-
-
-
-    default:
-      return state
-  }
+const ReserveReducer = (state = InitialAppState, action) => {
 
 }
 
-export default ClientEvents
+export default ReserveReducer

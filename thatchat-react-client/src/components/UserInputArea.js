@@ -1,12 +1,34 @@
 import React from 'react';
 import './UserInputArea.css';
+import { connect } from 'react-redux';
 
-function UserInputArea() {
-  return (
-    <div className="UserInputArea">
-     <input type="textarea" autocomplete="off" placeholder="Write something!" id="txtpusher" data-bind="value: wallText, valueUpdate: 'keyup'"/>    
-    </div>
-  );
+class UserInputArea extends React.Component {
+
+
+	
+
+
+
+	render(){
+
+	  if (this.props.store.connectedToRoom){
+
+	 	 return (
+			<div className="UserInputArea">
+		     <input type="textarea" autocomplete="off" placeholder="Write something!" id="txtpusher" data-bind="value: wallText, valueUpdate: 'keyup'"/>    
+			</div>
+		);
+
+	 } else {
+			return (null);
+		}
+	  
+	}	
 }
 
-export default UserInputArea;
+
+const mapStateToProps = state =>({
+	store : state.AppData
+})
+
+export default connect(mapStateToProps)(UserInputArea);

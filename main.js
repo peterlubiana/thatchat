@@ -58,11 +58,7 @@ $(document).ready(function(){
 	}
     });
 
-    $("#joinRandomButton").on("click",function(){
-	var nameFromInputBox = $("#userNameInput").val();
-	if(name || nameFromInputBox)
-	    s.emit("getRandomRoom",{"name":nameFromInputBox});
-    });
+
     
     $("#pushUserName").on("click",function(){
 	var nameFromInputBox = $("#userNameInput").val();
@@ -87,36 +83,48 @@ $(document).ready(function(){
     });
     
     $("#playfield").on("click","audio",function(e){
-	e.stopPropagation();
+		e.stopPropagation();
     });
 
 
     $("#playfield").on("click",".imageBox",function(e){
-	e.stopPropagation();
+		e.stopPropagation();
     });
     
 
-    $("#menuButton").on("click",function(e){
-	e.stopPropagation();
-	$("#joinRoomArea, #getNameArea").slideToggle(300);
-	var $m = $("#menu");
 
-	if($m.css("background") != "none")
-	    $m.css({"background":"#fefefe"});
-	else
-	    $m.css({"background":"none"});
-	   
-    });
     
     $(window).on("focus",function(){
-	app.focused = true;
-	document.title = "ThatChat";
+		app.focused = true;
+		document.title = "ThatChat";
     });
     
     $(window).on("blur",function(){
-	app.focused = false;
+		app.focused = false;
     });
-    
+
+
+    /*$("#joinRandomButton").on("click",function(){
+		var nameFromInputBox = $("#userNameInput").val();
+		if(name || nameFromInputBox)
+		    s.emit("getRandomRoom",{"name":nameFromInputBox});
+    });*/
+
+    /*
+    $("#menuButton").on("click",function(e){
+		e.stopPropagation();
+		$("#joinRoomArea, #getNameArea").slideToggle(300);
+		var $m = $("#menu");
+
+		if($m.css("background") != "none")
+		    $m.css({"background":"#fefefe"});
+		else
+		    $m.css({"background":"none"});
+		   
+    });
+	*/
+
+    /*
     $("#joinSpecificButton").on("click",function(){
 	var roomFromInputBox = $("#joinSpecificInput").val();
 	if(currentRoom || roomFromInputBox)
@@ -124,7 +132,7 @@ $(document).ready(function(){
 		alert("You need to supply a room to join!");
     });
     
-    
+       */
 });
 
 var app = function(){
@@ -220,17 +228,17 @@ var app = function(){
     }
     
     this.getAwesomeColor = function(){
-	var r = Math.round(Math.random()*colors.length);
-	return colors[r];
+		var r = Math.round(Math.random()*colors.length);
+		return colors[r];
     }
     this.getMaxMessageLength = function(){
-	return this.MAX_MSG_LENGTH;
+		return this.MAX_MSG_LENGTH;
     }
     
     this.removeUserFromPlayfield = function(user){
-	$("#playfield").find("#boxfor"+user).fadeOut("slow",function(){
-            $(this).remove();
-        });
+		$("#playfield").find("#boxfor"+user).fadeOut("slow",function(){
+	            $(this).remove();
+	        });
     };
     
     // Checks if a certain user exists at any given moment..
@@ -241,12 +249,12 @@ var app = function(){
     },5000);
     
     this.showRoomUI = function(){
-	$("#main").hide();
-	$("#myarea").show();
+		$("#main").hide();
+		$("#myarea").show();
     }
     
     this.refreshDraggableDomBox = function(){
-	$(".dombox").draggable();
+		$(".dombox").draggable();
     }
     
     this.createDomBox = function(clientname){
@@ -326,28 +334,28 @@ function connectSocketIO(){
 	});
     
     socket.on('userConnectedToRoom',function(data){
-	console.log(data);
-	app.showRoomUI();
-	currentRoom = data.room;
-	WC.wallName(currentRoom);
+		console.log(data);
+		app.showRoomUI();
+		currentRoom = data.room;
+		WC.wallName(currentRoom);
     });
     
     socket.on("usernameTaken",function(data){
-	alert(data.msg);
+		alert(data.msg);
     });
     
 
     socket.on("usernameGiven",function(data){
-	WC.userName(data.username);
-	if($("#boxforYou").length == 0){
-	    $mybox = app.createDomBox("You");
-	    $mybox.find(".domboxmsg").attr({"data-bind":"text: wallText"});
-	    $mybox.hide();
-	    $("#playfield").html($mybox);
-	    $mybox.slideToggle("fast");	
-	    $(".dombox").css({"background":app.getAwesomeColor()});
-	    ko.applyBindings(WC,$mybox[0]);
-	}
+		WC.userName(data.username);
+		if($("#boxforYou").length == 0){
+		    $mybox = app.createDomBox("You");
+		    $mybox.find(".domboxmsg").attr({"data-bind":"text: wallText"});
+		    $mybox.hide();
+		    $("#playfield").html($mybox);
+		    $mybox.slideToggle("fast");	
+		    $(".dombox").css({"background":app.getAwesomeColor()});
+		    ko.applyBindings(WC,$mybox[0]);
+		}
     });
 
     socket.on("specificRoomFound",function(data){
@@ -402,22 +410,22 @@ function connectSocketIO(){
     
 
     socket.on("specificRoomFull",function(data){
-	alert(data.msg);
+		alert(data.msg);
     });
     
     socket.on("disconnect",function(data){
-	location.reload();
+		location.reload();
     });
     
     socket.on("userExists",function(data){
-	if(data.exists == "true")
-	    return;
-	else
-	    app.removeUserFromPlayfield(data.username);
+		if(data.exists == "true")
+		    return;
+		else
+	    	app.removeUserFromPlayfield(data.username);
     });
 
     socket.on("needUserName",function(data){
-	alert(data.msg);
+		alert(data.msg);
     });
 
     return socket;
@@ -437,23 +445,23 @@ var rm = function(){
     this.clientsConnected = {};
     
     this.addClientToRoom = function(client){
-	this.clientsConnected[client] = client;
-	console.log("Client connected To room "+name);
+		this.clientsConnected[client] = client;
+		console.log("Client connected To room "+name);
     }
 
     this.getClientNameFromId = function(id){
-	return id.replace("boxfor","");
+		return id.replace("boxfor","");
     }
     
     this.hasClient = function(client){
-	if(this.clientsConnected[client])
-	    return true
-	return false;
+		if(this.clientsConnected[client])
+		    return true
+		return false;
     }
     
     this.removeClientFromRoom = function(client){
-	delete this.clientsConnected[client];
-	console.log("Client disconnected from room");
+		delete this.clientsConnected[client];
+		console.log("Client disconnected from room");
     }
     
     return this;

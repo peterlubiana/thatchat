@@ -6,22 +6,52 @@
   background:white;
   position:fixed;
   padding:20px;
-  bottom:35%;
-  right:0%;
+  top:0px;
+  right:0px;
+  margin:auto;
+  width:100vw;
+  height:100vh;
+}
+
+label{
+  display: block;
+  margin-bottom: 20px;
 }
 
 #getNameArea{
+  clear:both;
+  display: block;
+  padding:20px;
+}
+
+#joinRoomArea{
+  padding:20px;
   clear:both;
   display: block;
 }
 
 #menu{
   padding:20px;
+}
 
+#menu img{
+  max-width:128px;
+  height:auto;
 }
 
 .LoginBar input{
   padding:10px;
+
+  margin:2px;
+  text-align: center;
+}
+
+.LoginBar input{
+  width:200px;
+}
+
+.LoginBar input[type="button"]{
+  width:150px;
 }
 
 #menuButton{

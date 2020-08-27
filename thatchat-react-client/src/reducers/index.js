@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import ClientEvents from './ClientEvents'
-import AppEvents from './AppEvents'
-import { connect } from 'react-redux';
+// import ClientData from './ClientData'
+import AppData from './AppData'
+
 
 
 
 export default combineReducers({
-   ClientEvents,
-   AppEvents
+   // ClientData,
+   AppData
 })

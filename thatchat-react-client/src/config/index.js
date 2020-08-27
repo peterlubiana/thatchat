@@ -6,7 +6,20 @@
 */
 
 
-export const InitialAppState = {
+export const InitialState = {
+    userBoxColors : ["lightred","lightblue",
+      "lightgreen","lightorange","lightyellow",
+      "lightgreen","lightblue"],
+    
+    connectedToRoom : false,
+
+    // Info / Contraints about the messages client side.
+    MAX_MSG_LENGTH : 200,
+    MAX_ROOM_LENGTH : 16,
+
+    focused : true,
+    notifying : false,
+
 
     // Info About User.
     userDisplayName : "no name",

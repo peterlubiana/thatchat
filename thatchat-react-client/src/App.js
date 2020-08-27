@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import { connect } from 'react-redux';
 
+
 /*
     
     Components in the App.
@@ -30,6 +31,10 @@ class App extends Component {
      console.log(props)
   }
 
+
+
+
+
   getRandomColor(){
      var colors = ['red', 'green', 'blue', 'orange', 'yellow'];
      return colors[Math.floor(Math.random() * colors.length)];
@@ -38,9 +43,10 @@ class App extends Component {
   componentDidMount(){
     
     /*
-
-
+      Connect to Socket.IO
     */
+
+    //let s = connectSocketIO();
 
   }
 
@@ -49,7 +55,7 @@ class App extends Component {
     return(<div className="App" style={{background:this.getRandomColor()}} >
       <header className="noClass">
 
-        <StatusPanel />
+
         <Room />
         <LoginBar />
         <UserInputArea />
@@ -73,7 +79,7 @@ class App extends Component {
 */
 
 const mapStateToProps = state =>({
-  chocolate:state
+  store:state.AppData
 })
 
 // Connect this Component with the Redux store we created.
